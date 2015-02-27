@@ -1,6 +1,7 @@
-import vaadin = require("./Vaadin");
+import Vaadin = require("Vaadin");
 
-interface MyConnector  extends vaadin.Connector {
+
+interface MyConnector  extends Vaadin.Connector {
     setRGB:(r:number, g:number, b:number) => void;    
     clicked:() => void; // server RPC function that can be called from the client
 }
@@ -23,21 +24,23 @@ var com_github_mjvesa_tsdemo_widget_DemoWidget = function() {
        
 
 
-//    that.onStateChange = function ():void {
-//        console.log("### DESKRIPSHOON: " + that.getState().description);    
-//    }
+    // Shared state example
+    that.onStateChange = function ():void {
+        console.log("Description: " + that.getState().description);    
+    }
 
     var initCurve = function () {
         for (var i = 0 ; i < 256 ; i++) {
-            curve[i] = (Math.sin(i / 64 * Math.PI) * 128 + 128)|0;
+            curve[i] = (Math.sin(i / 128 * Math.PI) * 128 + 128)|0;
         }
     }
 
     // This function will be called trough RPC from the server side    
     that.setRGB = function(r, g, b) {
         colorR = r;
-        colorG = g;
+        colorG = g;        
         colorB = b;
+        
     }
 
     var createCanvas = function(el: HTMLElement): CanvasRenderingContext2D {
@@ -63,9 +66,9 @@ var com_github_mjvesa_tsdemo_widget_DemoWidget = function() {
 
         for (i = 0; i < 256; i++) {
             colors[i] = <RGB>{};
-            colors[i].r = 128 + (Math.sin(i / 64 * Math.PI) * colorR * 128) | 0;
-            colors[i].g = 128 + (Math.sin(i / 64 * Math.PI) * colorG * 128) | 0;
-            colors[i].b = 128 + (Math.sin(i / 64 * Math.PI) * colorB * 128) | 0;
+            colors[i].r = 128 + (Math.sin(i / 128 * Math.PI) * colorR * 128) | 0;
+            colors[i].g = 128 + (Math.sin(i / 128 * Math.PI) * colorG * 128) | 0;
+            colors[i].b = 128 + (Math.sin(i / 128 * Math.PI) * colorB * 128) | 0;
         }
 
         i = 0;
