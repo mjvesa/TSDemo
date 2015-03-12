@@ -1,0 +1,27 @@
+{
+  "name": "TSDemo",
+  "version": "1.0.0",
+  "description": "Node part of TSDemo",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mjvesa/TSDemo.git"
+  },
+  "keywords": [
+    "TypeScript",
+    "Vaadin"
+  ],
+  "author": "Matti Vesa",
+  "license": "Apache 2.0",
+  "bugs": {
+    "url": "https://github.com/mjvesa/TSDemo/issues"
+  },
+  "homepage": "https://github.com/mjvesa/TSDemo",
+  "dependencies" : {
+    "gulp" : "*",
+    "gulp-typescript" : "*"
+  } 
+}
